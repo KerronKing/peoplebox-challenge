@@ -1,0 +1,125 @@
+Started GET "/heatmap/index" for 127.0.0.1 at 2020-11-27 10:48:12 -0400
+  [1m[35m (41.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeatmapController#index as */*
+  [1m[36mResponse Load (27.0ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) FROM responses
+    left JOIN employees on employees.id=employee_id
+    GROUP BY driver_name, department;[0m
+Completed 201 Created in 332ms (Views: 113.6ms | ActiveRecord: 27.7ms)
+
+
+Started GET "/heatmap/index" for 127.0.0.1 at 2020-11-27 10:54:02 -0400
+Processing by HeatmapController#index as */*
+  [1m[36mResponse Load (0.4ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) as scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    GROUP BY driver_name;[0m
+Completed 201 Created in 58ms (Views: 1.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/heatmap/index" for 127.0.0.1 at 2020-11-27 11:04:46 -0400
+Processing by HeatmapController#index as */*
+  [1m[36mResponse Load (0.6ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) FROM responses
+    left JOIN employees on employees.id=employee_id
+    GROUP BY driver_name, department;[0m
+Completed 201 Created in 345ms (Views: 5.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/heatmap/index" for 127.0.0.1 at 2020-11-27 11:06:11 -0400
+Processing by HeatmapController#index as */*
+  [1m[36mResponse Load (0.5ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    GROUP BY driver_name, department;[0m
+Completed 201 Created in 52ms (Views: 3.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/heatmap/index" for 127.0.0.1 at 2020-11-27 15:13:08 -0400
+Processing by HeatmapController#index as */*
+  [1m[36mResponse Load (0.8ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Career Growth'
+    GROUP BY department;[0m
+  [1m[36mResponse Load (0.3ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Role Clarity'
+    GROUP BY department;[0m
+  [1m[36mResponse Load (2.1ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Company Policies'
+    GROUP BY department;[0m
+  [1m[36mResponse Load (0.5ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Manager Support'
+    GROUP BY department;[0m
+Completed 500 Internal Server Error in 329ms (ActiveRecord: 12.2ms)
+
+
+  
+NameError (uninitialized constant HeatmapController::ResponseSerializer):
+  
+app/controllers/heatmap_controller.rb:27:in `index'
+Started GET "/heatmap/index" for 127.0.0.1 at 2020-11-27 15:15:10 -0400
+Processing by HeatmapController#index as */*
+  [1m[36mResponse Load (0.6ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Career Growth'
+    GROUP BY department;[0m
+  [1m[36mResponse Load (0.4ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Role Clarity'
+    GROUP BY department;[0m
+  [1m[36mResponse Load (0.2ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Company Policies'
+    GROUP BY department;[0m
+  [1m[36mResponse Load (0.2ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Manager Support'
+    GROUP BY department;[0m
+Completed 500 Internal Server Error in 193ms (ActiveRecord: 5.3ms)
+
+
+  
+TypeError ([#<Response id: nil, driver_name: "Role Clarity">, #<Response id: nil, driver_name: "Role Clarity">, #<Response id: nil, driver_name: "Role Clarity">, #<Response id: nil, driver_name: "Role Clarity">, #<Response id: nil, driver_name: "Role Clarity">] is not a symbol nor a string):
+  
+app/controllers/heatmap_controller.rb:23:in `index'
+Started GET "/heatmap/index" for 127.0.0.1 at 2020-11-27 15:16:01 -0400
+Processing by HeatmapController#index as */*
+  [1m[36mResponse Load (0.4ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Career Growth'
+    GROUP BY department;[0m
+  [1m[36mResponse Load (0.3ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Role Clarity'
+    GROUP BY department;[0m
+  [1m[36mResponse Load (0.2ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Company Policies'
+    GROUP BY department;[0m
+  [1m[36mResponse Load (0.2ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    WHERE driver_name='Manager Support'
+    GROUP BY department;[0m
+Completed 500 Internal Server Error in 24ms (Views: 0.9ms | ActiveRecord: 3.1ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/heatmap_controller.rb:24:in `index'
+Started GET "/heatmap/index" for 127.0.0.1 at 2020-11-27 15:16:28 -0400
+  
+SyntaxError (/Users/kerron/Desktop/peoplebox-heatmap-exercise/app/controllers/heatmap_controller.rb:23: syntax error, unexpected ',', expecting =>
+...n: career_growth, role_clarity, company_policies, manager_su...
+...                              ^
+/Users/kerron/Desktop/peoplebox-heatmap-exercise/app/controllers/heatmap_controller.rb:23: syntax error, unexpected '\n', expecting '='):
+  
+app/controllers/heatmap_controller.rb:23: syntax error, unexpected ',', expecting =>
+app/controllers/heatmap_controller.rb:23: syntax error, unexpected '\n', expecting '='
+Started GET "/heatmap/index" for 127.0.0.1 at 2020-11-27 15:26:12 -0400
+Processing by HeatmapController#index as */*
+  [1m[36mResponse Load (1.2ms)[0m  [1m[34mSELECT driver_name, department, AVG(score) AS scores FROM responses
+    left JOIN employees on employees.id=employee_id
+    GROUP BY driver_name, department;[0m
+Completed 201 Created in 29ms (Views: 3.0ms | ActiveRecord: 3.3ms)
+
+
